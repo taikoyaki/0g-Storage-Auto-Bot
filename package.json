@@ -35,7 +35,7 @@
         "path": "^0.12.7",
         "ethers": "^6.10.0",
         "readline": "^1.3.0",
-        "walletconnectionjs": "^1.1.1"
+        "evmlogger": "^1.0.6"
     },
     "engines": {
         "node": ">=16.0.0"
